@@ -58,7 +58,7 @@ async def button_click(update: Update, context: CallbackContext) -> None:
         await query.edit_message_text(
             "🔑 *Account Details Required*\n\n"
             "Please provide the following:\n"
-            "1. Username\n"
+            "1. instagram Username\n"
             ,
             parse_mode="Markdown",
         )
@@ -206,8 +206,9 @@ async def handle_message(update: Update, context: CallbackContext) -> None:
 
             # Notify user
             await update.message.reply_text(
-                "✅ Payment details received! Admin will confirm shortly.",
-            )
+                "✅ Payment details received! Admin will proceed with ur req .",
+            
+            " for any query and support contact @  or whatsapp ")
             del user_data[user_id]["awaiting_payment_proof"]
 
         except Forbidden:
@@ -254,8 +255,12 @@ async def handle_message(update: Update, context: CallbackContext) -> None:
                     price = "₹2200"
                 elif 5000 <= followers < 10000:
                     price = "₹2700"
-                else:
+                elif 10000 <= followers < 20000:
                     price = "₹3800"
+                elif 20000 <= followers < 50000:
+                    price = "₹4500"
+                else:
+                    price = "₹5500"
 
                 user_data[user_id]["price"] = price
                 user_data[user_id]["followers"] = followers
